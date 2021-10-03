@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tileset/tileset.png" type="Texture" id=1]
+[ext_resource path="res://levels/circle.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.0
+height = 60.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "glow"
+length = 3.0
+loop = true
+step = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ 1.0, 0.8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 2, 1 ), Vector2( 2.2, 1.1 ) ]
+}
+
+[node name="Lamp" type="Area2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -22 )
+region_enabled = true
+region_rect = Rect2( 240, 32, 16, 48 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -16 )
+scale = Vector2( 2.2, 1.1 )
+texture = ExtResource( 2 )
+color = Color( 1, 0.8, 0, 1 )
+energy = 0.8
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+autoplay = "glow"
+anims/glow = SubResource( 2 )

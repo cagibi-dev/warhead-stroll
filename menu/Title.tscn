@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://menu/title.png" type="Texture" id=1]
+[ext_resource path="res://menu/black.stylebox" type="StyleBox" id=2]
+[ext_resource path="res://menu/Title.gd" type="Script" id=3]
+[ext_resource path="res://menu/settings.png" type="Texture" id=4]
+[ext_resource path="res://levels/levelcomplete.wav" type="AudioStream" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[node name="Title" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 320.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 32 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 256.0
+margin_bottom = 28.0
+rect_scale = Vector2( 2, 2 )
+text = "Warhead Stroll"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 40.0
+margin_right = 512.0
+margin_bottom = 68.0
+text = "cagibi.itch.io - 2021"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+margin_left = 184.0
+margin_top = 248.0
+margin_right = 328.0
+margin_bottom = 272.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0.462745 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sfx" type="TextureButton" parent="."]
+margin_left = 424.0
+margin_top = 16.0
+margin_right = 440.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+toggle_mode = true
+pressed = true
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Toggled" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 5 )
+volume_db = -6.0
+bus = "sfx"
+
+[node name="Music" type="TextureButton" parent="."]
+margin_left = 464.0
+margin_top = 16.0
+margin_right = 480.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+toggle_mode = true
+pressed = true
+texture_normal = SubResource( 6 )
+texture_pressed = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="toggled" from="Sfx" to="." method="_on_Sfx_toggled"]
+[connection signal="toggled" from="Music" to="." method="_on_Music_toggled"]

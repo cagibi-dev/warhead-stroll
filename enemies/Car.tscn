@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://enemies/car.png" type="Texture" id=1]
+[ext_resource path="res://enemies/Car.gd" type="Script" id=2]
+[ext_resource path="res://levels/cloud.png" type="Texture" id=3]
+[ext_resource path="res://levels/beam.png" type="Texture" id=4]
+[ext_resource path="res://enemies/engine.wav" type="AudioStream" id=5]
+[ext_resource path="res://enemies/crash.wav" type="AudioStream" id=6]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.797727 ), 0.0, 1.30909, 0, 0, Vector2( 1, 0 ), -2.46688, 0.0, 0, 0 ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 8 )
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20, 10 )
+
+[node name="Car" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 2 )
+vel = Vector2( 0, 300 )
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -24 )
+lifetime = 0.5
+local_coords = false
+texture = ExtResource( 3 )
+direction = Vector2( 0, -4 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 40.0
+angle = 180.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 1 )
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -22 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 48, 48 )
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 2 )
+
+[node name="Beam" type="Light2D" parent="."]
+position = Vector2( -16, 72 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.866667, 0, 1 )
+energy = 0.6
+
+[node name="Beam2" type="Light2D" parent="."]
+position = Vector2( 16, 72 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.843137, 0, 1 )
+energy = 0.6
+
+[node name="Engine" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 3 )
+autoplay = true
+max_distance = 600.0
+attenuation = 0.5
+bus = "sfx"
+
+[node name="CrashZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="Shape" type="CollisionShape2D" parent="CrashZone"]
+shape = SubResource( 4 )
+
+[node name="Crash" type="AudioStreamPlayer2D" parent="CrashZone"]
+stream = ExtResource( 6 )
+bus = "sfx"
+[connection signal="body_entered" from="CrashZone" to="." method="_on_CrashZone_body_entered"]
