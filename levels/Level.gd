@@ -24,6 +24,14 @@ func _physics_process(delta: float) -> void:
 	if $HUD/Bar.value > 86 and not is_dying:
 		is_dying = true
 		die()
+	
+	# kill offscreen
+	for protag in [$OldRoger, $Dog]:
+		if protag.position.x > $Camera2D.limit_right+32 \
+		or protag.position.x < $Camera2D.limit_left-32 \
+		or protag.position.y > $Camera2D.limit_bottom+32 \
+		or protag.position.y < $Camera2D.limit_top-32:
+			die()
 
 
 func _process(delta: float) -> void:
