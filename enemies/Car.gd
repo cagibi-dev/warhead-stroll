@@ -18,4 +18,4 @@ func _physics_process(_delta: float) -> void:
 
 func _on_CrashZone_body_entered(body: Node) -> void:
 	if body != self:
-		$CrashZone/Crash.play()
+		$CrashZone/Crash.play(0.1)
