@@ -3,7 +3,7 @@ extends "res://levels/Level.gd"
 
 var texts := [
 	"BUTCHER: En garde!\nI will fight your dog until death, for a salami.",
-	"OLD ROGER: I'm immune to your knives but my dog can get cut.\nThe knives can block my path and make me detonate though.",
+	"OLD ROGER: I'm immune to your knives but my dog can get cut.\nOnly the blade parts of the knives can hurt my boy.",
 	"OLD ROGER: Ye're a good boy! Keep it up! That's the spirit!\nBUTCHER: This is an absurd conflict and I'm glad to be part of it!",
 	"BUTCHER: I've always wondered if every butcher has a fight like\nthis one each morning. OLD ROGER: Ain't bad to have some exercise!",
 	"OLD ROGER: Hey butcher, am thinkin there's a metaphor there,\nye know, we're fightin to death for a goddamn salami.",
@@ -124,13 +124,13 @@ func rose():
 	var angle := 0.0
 	for i in range(5):
 		var knife: Node2D = preload("res://enemies/Knife.tscn").instance()
-		knife.position = $Aim.position - Vector2(200, 0).rotated(angle)
-		knife.velocity = Vector2(-20, 0).rotated(angle)
-		knife.acc = Vector2(200, 0).rotated(angle)
+		knife.position = $Aim.position - Vector2(160, 0).rotated(angle)
+		knife.velocity = Vector2(-25, 0).rotated(angle)
+		knife.acc = Vector2(160, 0).rotated(angle)
 		knife.rot = TAU if i%2 == 0 else -TAU
 		add_child(knife)
 		angle += TAU / 5.0
-		yield(get_tree().create_timer(0.05), "timeout")
+		yield(get_tree().create_timer(0.1), "timeout")
 
 
 func _on_HitBox_body_entered(_body: Node) -> void:

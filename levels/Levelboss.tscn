@@ -35,14 +35,18 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="Shape" type="CollisionShape2D" parent="Dog/HitBox" index="0"]
-position = Vector2( 0, -8 )
 shape = SubResource( 1 )
 
 [node name="Leash" parent="." index="4"]
-position = Vector2( 192, 240 )
+position = Vector2( 192, 400 )
+
+[node name="J1" parent="Leash" index="8"]
+node_a = NodePath("../../OldRoger")
 
 [node name="OldRoger" parent="." index="5"]
-position = Vector2( 320, 240 )
+position = Vector2( 344, 344 )
+collision_layer = 0
+collision_mask = 0
 
 [node name="TopSmoke" parent="HUD" index="0"]
 visible = false
@@ -85,5 +89,6 @@ autostart = true
 pause_mode = 2
 stream = ExtResource( 6 )
 bus = "music"
+
 [connection signal="body_entered" from="Dog/HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="KnifeTimer" to="." method="_on_KnifeTimer_timeout"]
