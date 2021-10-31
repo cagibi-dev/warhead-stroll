@@ -38,4 +38,5 @@ bus = "sfx"
 
 [node name="Timer" type="Timer" parent="Dialog"]
 wait_time = 0.08
+
 [connection signal="timeout" from="Dialog/Timer" to="." method="_on_Timer_timeout"]

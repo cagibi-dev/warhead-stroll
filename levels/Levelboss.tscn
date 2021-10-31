@@ -43,6 +43,9 @@ position = Vector2( 192, 400 )
 [node name="J1" parent="Leash" index="8"]
 node_a = NodePath("../../OldRoger")
 
+[node name="J9" parent="Leash" index="16"]
+node_b = NodePath("../L7")
+
 [node name="OldRoger" parent="." index="5"]
 position = Vector2( 344, 344 )
 collision_layer = 0

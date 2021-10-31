@@ -147,7 +147,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 0.0349066
 texture = ExtResource( 1 )
-offset = Vector2( 0, -30 )
+offset = Vector2( 0, -23 )
 hframes = 4
 vframes = 2
 
@@ -158,7 +158,7 @@ anims/idle = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="Shadow" parent="." instance=ExtResource( 3 )]
-scale = Vector2( 0.8, 0.3 )
+scale = Vector2( 0.5, 0.15 )
 
 [node name="Step" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 5 )

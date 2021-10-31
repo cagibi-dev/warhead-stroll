@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	var j = [$Leash/L1, $Leash/L2, $Leash/L3, $Leash/L4, $Leash/L5, $Leash/L6, $Leash/L7, $Leash/L8]
 	for i in range(len(j)-1):
-		draw_line(j[i].global_position, j[i+1].global_position, Color.black, 2)
+		draw_line(j[i].global_position, j[i+1].global_position, Color.black, 2, false)
 
 
 func die() -> void:

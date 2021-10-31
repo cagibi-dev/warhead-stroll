@@ -94,7 +94,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 0, -15 )
+offset = Vector2( 0, -11 )
 hframes = 4
 __meta__ = {
 "_edit_lock_": true
@@ -107,6 +107,7 @@ anims/idle = SubResource( 4 )
 anims/run = SubResource( 5 )
 
 [node name="Shadow" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 0.4, 0.12 )
 
 [node name="Step" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 6 )

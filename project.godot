@@ -110,7 +110,7 @@ ui_down={
 [physics]
 
 2d/default_gravity_vector=Vector2( 0, 0 )
-2d/default_linear_damp=10.0
+2d/default_linear_damp=12.0
 
 [rendering]
 

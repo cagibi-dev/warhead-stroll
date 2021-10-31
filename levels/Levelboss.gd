@@ -25,6 +25,8 @@ onready var barpos: Vector2 = $HUD/BossBar.rect_position
 onready var patience: float = $HUD/BossBar.value
 
 func _ready() -> void:
+	$HUD/Bar.hide()
+
 	var id = -1
 	for i in range(len(texts)):
 		var text = texts[i]
@@ -156,3 +158,7 @@ func dog_die() -> void:
 	Engine.time_scale = 1.0
 	var err := get_tree().reload_current_scene()
 	assert(err == OK)
+
+
+func die() -> void:
+	pass
