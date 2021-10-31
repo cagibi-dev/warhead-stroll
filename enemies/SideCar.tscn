@@ -12,7 +12,8 @@ extents = Vector2( 40, 7 )
 vel = Vector2( 400, 0 )
 
 [node name="Smoke" parent="." index="0"]
-position = Vector2( -32, -16 )
+position = Vector2( -16, -16 )
+rotation = -1.5708
 
 [node name="Sprite" parent="." index="1"]
 region_rect = Rect2( 0, 0, 64, 48 )

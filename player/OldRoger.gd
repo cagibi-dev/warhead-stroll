@@ -7,7 +7,7 @@ func _process(_delta: float) -> void:
 	# animation
 	var acc := vel - linear_velocity
 	vel = linear_velocity
-	if acc.length_squared() > 100:
+	if acc.length_squared() > 120:
 		is_in_danger = true
 		$Anim.play("danger")
 	elif not is_in_danger:
