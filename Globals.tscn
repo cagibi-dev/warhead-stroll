@@ -32,7 +32,7 @@ __meta__ = {
 
 [node name="Talk" type="AudioStreamPlayer" parent="Dialog"]
 stream = SubResource( 1 )
-volume_db = -6.0
+volume_db = -9.0
 pitch_scale = 2.0
 bus = "sfx"
 

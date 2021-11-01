@@ -92,8 +92,9 @@ energy = 0.6
 
 [node name="Engine" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 3 )
+volume_db = -18.0
 autoplay = true
-max_distance = 600.0
+max_distance = 400.0
 attenuation = 0.5
 bus = "sfx"
 

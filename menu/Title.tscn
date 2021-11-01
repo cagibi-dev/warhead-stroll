@@ -112,7 +112,7 @@ __meta__ = {
 
 [node name="Toggled" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 5 )
-volume_db = -6.0
+volume_db = -18.0
 bus = "sfx"
 
 [node name="Music" type="TextureButton" parent="."]

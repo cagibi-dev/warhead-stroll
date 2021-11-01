@@ -167,6 +167,7 @@ bus = "sfx"
 
 [node name="Danger" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 6 )
+volume_db = -9.0
 bus = "sfx"
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]

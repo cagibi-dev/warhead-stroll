@@ -21,3 +21,4 @@ rect = Rect2( -50, -60, 130, 120 )
 
 [node name="Appear" parent="." index="3"]
 stream = ExtResource( 2 )
+volume_db = -3.0
