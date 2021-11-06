@@ -20,6 +20,11 @@ func say(text: String) -> void:
 		$Dialog/Timer.start()
 
 
+func say_fast(text: String) -> void:
+	$Dialog.text = text
+	$Dialog.percent_visible = 1
+
+
 func _on_Timer_timeout() -> void:
 	$Dialog.visible_characters += 3
 	$Dialog/Talk.play()

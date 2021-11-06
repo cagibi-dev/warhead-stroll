@@ -25,14 +25,9 @@ config/icon="res://icon.png"
 
 Globals="*res://Globals.tscn"
 
-[debug]
-
-settings/fps/force_fps=60
-
 [display]
 
 window/size/height=640
-window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://cursor.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

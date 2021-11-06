@@ -8,7 +8,5 @@ func _ready() -> void:
 	yield(get_tree().create_timer(7.0), "timeout")
 	Globals.say("BUTCHER: Here you go! Have a nice day,\ndon't explode on the way out! OLD ROGER: Thanks, ye too!")
 	yield(get_tree().create_timer(9.0), "timeout")
-	Globals.say("You died " + str(Globals.deaths)
-	+ " times and you finished the game in " + str(round(Globals.time)) + " seconds\nThanks for playing!")
-	var err := get_tree().change_scene("res://menu/Title.tscn")
+	var err := get_tree().change_scene("res://menu/Credits.tscn")
 	assert(err == OK)
