@@ -82,6 +82,7 @@ random_pitch = 1.5
 collision_layer = 3
 mode = 2
 physics_material_override = SubResource( 1 )
+can_sleep = false
 script = ExtResource( 2 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]

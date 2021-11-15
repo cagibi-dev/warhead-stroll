@@ -107,6 +107,7 @@ shape = SubResource( 4 )
 
 [node name="Crash" type="AudioStreamPlayer2D" parent="CrashZone"]
 stream = SubResource( 5 )
+volume_db = -12.0
 bus = "sfx"
 
 [connection signal="body_entered" from="CrashZone" to="." method="_on_CrashZone_body_entered"]

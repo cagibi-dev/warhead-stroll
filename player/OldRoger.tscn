@@ -137,6 +137,7 @@ random_pitch = 1.2
 
 [node name="OldRoger" type="RigidBody2D"]
 mode = 2
+can_sleep = false
 script = ExtResource( 2 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
