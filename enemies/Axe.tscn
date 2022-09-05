@@ -4,7 +4,7 @@
 [ext_resource path="res://enemies/axe.wav" type="AudioStream" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 28, 16 )
+extents = Vector2( 26, 14 )
 
 [node name="Knife" instance=ExtResource( 1 )]
 

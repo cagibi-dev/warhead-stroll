@@ -5,8 +5,8 @@
 [ext_resource path="res://enemies/knife.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 6.0
-height = 30.0
+radius = 4.0
+height = 24.0
 
 [node name="Knife" type="StaticBody2D"]
 z_index = 20
@@ -21,7 +21,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 64, 16 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2( 18, -1 )
+position = Vector2( 22, -1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

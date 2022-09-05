@@ -20,3 +20,13 @@ func _on_Sfx_toggled(button_pressed: bool) -> void:
 
 func _on_Music_toggled(button_pressed: bool) -> void:
 	AudioServer.set_bus_mute(2, not button_pressed)
+
+
+func _on_MoreGames_pressed():
+	var err := OS.shell_open("https://cagibi.itch.io")
+	assert(err == OK)
+
+
+func _on_Support_pressed():
+	var err := OS.shell_open("https://www.buymeacoffee.com/cagibidev")
+	assert(err == OK)

@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://menu/title.png" type="Texture" id=1]
 [ext_resource path="res://menu/black.stylebox" type="StyleBox" id=2]
 [ext_resource path="res://menu/Title.gd" type="Script" id=3]
-[ext_resource path="res://menu/settings.png" type="Texture" id=4]
+[ext_resource path="res://menu/icons.png" type="Texture" id=4]
 [ext_resource path="res://levels/levelcomplete.wav" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
 bg_color = Color( 1, 0, 0, 1 )
 corner_radius_top_right = 8
 corner_radius_bottom_left = 8
@@ -17,21 +19,29 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 16, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 48, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 4 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 16, 32, 16, 16 )
 
 [node name="Title" type="Node2D"]
 script = ExtResource( 3 )
@@ -50,7 +60,6 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
-zoom = Vector2( 0.5, 0.5 )
 
 [node name="Label" type="Label" parent="."]
 margin_top = 120.0
@@ -65,15 +74,15 @@ valign = 1
 margin_top = 160.0
 margin_right = 512.0
 margin_bottom = 188.0
-text = "cagibi.itch.io - 2021-2022"
+text = "By Paul Blanloeil - @cagibidev"
 align = 1
 valign = 1
 
 [node name="Play" type="Button" parent="."]
 margin_left = 112.0
-margin_top = 264.0
+margin_top = 224.0
 margin_right = 256.0
-margin_bottom = 288.0
+margin_bottom = 248.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 0.462745 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -86,11 +95,45 @@ custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 text = "Play"
 
+[node name="MoreGames" type="Button" parent="."]
+margin_left = 112.0
+margin_top = 280.0
+margin_right = 232.0
+margin_bottom = 304.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0.462745 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "More games"
+icon = SubResource( 8 )
+
+[node name="Support" type="Button" parent="."]
+margin_left = 240.0
+margin_top = 280.0
+margin_right = 400.0
+margin_bottom = 304.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0.462745 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "Buy me a coffee"
+icon = SubResource( 9 )
+
 [node name="Sfx" type="TextureButton" parent="."]
-margin_left = 400.0
-margin_top = 48.0
-margin_right = 416.0
-margin_bottom = 64.0
+margin_left = 8.00003
+margin_top = 8.0
+margin_right = 24.0
+margin_bottom = 24.0
 rect_scale = Vector2( 3, 3 )
 toggle_mode = true
 pressed = true
@@ -104,9 +147,9 @@ bus = "sfx"
 
 [node name="Music" type="TextureButton" parent="."]
 margin_left = 456.0
-margin_top = 48.0
+margin_top = 8.0
 margin_right = 472.0
-margin_bottom = 64.0
+margin_bottom = 24.0
 rect_scale = Vector2( 3, 3 )
 toggle_mode = true
 pressed = true
@@ -117,5 +160,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MoreGames" to="." method="_on_MoreGames_pressed"]
+[connection signal="pressed" from="Support" to="." method="_on_Support_pressed"]
 [connection signal="toggled" from="Sfx" to="." method="_on_Sfx_toggled"]
 [connection signal="toggled" from="Music" to="." method="_on_Music_toggled"]

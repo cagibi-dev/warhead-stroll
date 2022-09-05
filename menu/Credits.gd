@@ -5,8 +5,8 @@ var step := 0
 
 
 func _ready() -> void:
-	Globals.say_fast("You died " + str(Globals.deaths)
-	+ " times and you finished the game in " + str(round(Globals.time)) + " seconds\nThank you for playing!")
+	Globals.say_fast(tr("You died ") + str(Globals.deaths)
+	+ tr(" times and you finished the game in ") + str(round(Globals.time)) + tr(" seconds\nThank you for playing!"))
 
 
 func _input(event: InputEvent) -> void:

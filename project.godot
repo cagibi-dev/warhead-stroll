@@ -15,12 +15,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Warhead Stroll"
-config/description="This is a normal morning for Old Roger."
+config/description="Old Roger is walking his dog while trying not to explode."
 run/main_scene="res://menu/Title.tscn"
 boot_splash/image="res://splash.png"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.105882, 0.14902, 0.196078, 1 )
 config/icon="res://icon.png"
+config/name_fr="Balade Atomique"
+config/description_fr="Le père Roger essaie de promener son chien sans exploser."
 
 [autoload]
 
@@ -28,9 +30,10 @@ Globals="*res://Globals.tscn"
 
 [display]
 
-window/size/height=640
+window/size/width=512
+window/size/height=320
 mouse_cursor/custom_image="res://cursor.png"
-window/stretch/mode="2d"
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [gui]
@@ -112,6 +115,11 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_1="env"
 2d_physics/layer_2="player"
 2d_physics/layer_3="danger"
+
+[locale]
+
+test="en-US"
+translations=PoolStringArray( "res://i18n/locales.fr.translation" )
 
 [physics]
 
