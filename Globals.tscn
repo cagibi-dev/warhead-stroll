@@ -14,21 +14,18 @@ transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-volume_db = -6.0
 bus = "music"
 
 [node name="Dialog" type="Label" parent="."]
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = -40.0
-margin_bottom = -8.0
-text = "Made in two days for Ludum Dare #49
-Controls: Arrows or WASD to move"
+margin_top = -316.0
+margin_bottom = -281.0
+mouse_filter = 1
+text = "Walk your dog, don't explode!
+Made in two days for Ludum Dare #49"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Talk" type="AudioStreamPlayer" parent="Dialog"]
 stream = SubResource( 1 )

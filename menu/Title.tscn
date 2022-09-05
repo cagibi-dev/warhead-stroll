@@ -40,9 +40,6 @@ script = ExtResource( 3 )
 margin_right = 512.0
 margin_bottom = 320.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 32 )
@@ -56,32 +53,28 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="Label" type="Label" parent="."]
+margin_top = 120.0
 margin_right = 256.0
-margin_bottom = 28.0
+margin_bottom = 148.0
 rect_scale = Vector2( 2, 2 )
 text = "Warhead Stroll"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label2" type="Label" parent="."]
-margin_top = 40.0
+margin_top = 160.0
 margin_right = 512.0
-margin_bottom = 68.0
-text = "cagibi.itch.io - 2021"
+margin_bottom = 188.0
+text = "cagibi.itch.io - 2021-2022"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Play" type="Button" parent="."]
-margin_left = 184.0
-margin_top = 248.0
-margin_right = 328.0
-margin_bottom = 272.0
+margin_left = 112.0
+margin_top = 264.0
+margin_right = 256.0
+margin_bottom = 288.0
+rect_scale = Vector2( 2, 2 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 0.462745 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
@@ -92,35 +85,29 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sfx" type="TextureButton" parent="."]
-margin_left = 424.0
-margin_top = 16.0
-margin_right = 440.0
-margin_bottom = 32.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 400.0
+margin_top = 48.0
+margin_right = 416.0
+margin_bottom = 64.0
+rect_scale = Vector2( 3, 3 )
 toggle_mode = true
 pressed = true
 texture_normal = SubResource( 4 )
 texture_pressed = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Toggled" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 5 )
-volume_db = -18.0
+volume_db = -12.0
 bus = "sfx"
 
 [node name="Music" type="TextureButton" parent="."]
-margin_left = 464.0
-margin_top = 16.0
-margin_right = 480.0
-margin_bottom = 32.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 456.0
+margin_top = 48.0
+margin_right = 472.0
+margin_bottom = 64.0
+rect_scale = Vector2( 3, 3 )
 toggle_mode = true
 pressed = true
 texture_normal = SubResource( 6 )
