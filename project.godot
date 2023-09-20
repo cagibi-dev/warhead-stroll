@@ -118,7 +118,6 @@ pointing/emulate_touch_from_mouse=true
 
 [locale]
 
-test="en-US"
 translations=PoolStringArray( "res://i18n/locales.fr.translation" )
 
 [physics]

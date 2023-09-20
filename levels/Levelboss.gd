@@ -21,11 +21,12 @@ var texts := [
 ]
 var last_attack := 2
 
+onready var boss_bar_node := $HUD/BossBar
 onready var barpos: Vector2 = $HUD/BossBar.rect_position
 onready var patience: float = $HUD/BossBar.value
 
 func _ready() -> void:
-	$HUD/Bar.hide()
+	bar_node.hide()
 
 	var id = -1
 	for i in range(len(texts)):
@@ -39,10 +40,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	patience -= 2.5*delta
-	$HUD/BossBar.value = patience
+	boss_bar_node.value = patience
 	if patience < 15:
 		# shaky shaky
-		$HUD/BossBar.rect_position = barpos + Vector2(rand_range(-1, 1), rand_range(-1, 1))
+		boss_bar_node.rect_position = barpos + Vector2(rand_range(-1, 1), rand_range(-1, 1))
 	if patience < 3:
 		Globals.say("BUTCHER: Okay fine!\n=== You Win! ===")
 		Globals.play(null)
@@ -75,7 +76,7 @@ func _on_KnifeTimer_timeout() -> void:
 
 
 func rot_knives():
-	$Aim.position = $Dog.position
+	$Aim.position = dog_node.position
 	var angle := 0.0
 	for _i in range(9):
 		var knife: Node2D = preload("res://enemies/Knife.tscn").instance()
@@ -122,7 +123,7 @@ func slicers():
 
 
 func rose():
-	$Aim.position = $Dog.position
+	$Aim.position = dog_node.position
 	var angle := 0.0
 	for i in range(5):
 		var knife: Node2D = preload("res://enemies/Knife.tscn").instance()
@@ -138,20 +139,20 @@ func rose():
 func _on_HitBox_body_entered(_body: Node) -> void:
 	if not is_dying:
 		is_dying = true
-		$HUD/Bar.value = 86
-		$Explosion.position = $Dog.position
+		bar_node.value = 86
+		$Explosion.position = dog_node.position
 		dog_die()
 
 
 func dog_die() -> void:
 	Globals.deaths += 1
 	set_physics_process(false)
-	$Explosion.position = $Dog.position
+	$Explosion.position = dog_node.position
 	$Explosion.scale /= 2
 	$Explosion/Anim.play("explode")
 	$Explosion/Anim.playback_speed = 20
-	$Dog.set_physics_process(false)
-	$Dog.hide()
+	dog_node.set_physics_process(false)
+	dog_node.hide()
 	$Camera2D/ScreenShake.start(0.03, 1000, 20)
 	Engine.time_scale = 0.05
 	yield(get_tree().create_timer(0.075), "timeout")

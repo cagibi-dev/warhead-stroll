@@ -1,6 +1,9 @@
 extends RigidBody2D
 
-var max_vel := 50.0
+const MAX_VEL := 50.0
+
+onready var anim_node := $Anim
+onready var sprite_node := $Sprite
 
 
 func _physics_process(_delta: float) -> void:
@@ -12,12 +15,11 @@ func _physics_process(_delta: float) -> void:
 		input = input.normalized()
 
 	if input.x < 0:
-		$Sprite.scale.x = -1
+		sprite_node.scale.x = -1
 	elif input.x > 0:
-		$Sprite.scale.x = 1
+		sprite_node.scale.x = 1
 	if input.length_squared() > 0.1:
-		$Anim.play("run")
+		anim_node.play("run")
+		apply_central_impulse(input * MAX_VEL)
 	else:
-		$Anim.play("idle")
-
-	apply_central_impulse(input * max_vel)
+		anim_node.play("idle")
